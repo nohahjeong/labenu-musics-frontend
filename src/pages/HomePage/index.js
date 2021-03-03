@@ -3,9 +3,12 @@ import { AppBar, Tabs, Tab } from '@material-ui/core'
 import TabPanel from '../../components/TabPanel'
 import LogIn from '../../components/LogIn'
 import SignUp from '../../components/SignUp'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 const HomePage = () => {
     const [tab, setTab] = React.useState(0)
+
+    useUnprotectedPage()
 
     const handleTabChange = (event, selectedTab) => {
         setTab(selectedTab)

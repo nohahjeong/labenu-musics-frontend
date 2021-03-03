@@ -1,9 +1,12 @@
 import useForm from '../../hooks/useForm'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 import { TextField } from '@material-ui/core'
 import { ButtonStyled, FormStyled } from './styles'
-import axios from 'axios'
 
 const LogIn = () => {
+    const history = useHistory()
+
     const { form, onChangeInput, resetState } = useForm({
         emailOrNickname: '',
         password: ''
@@ -19,7 +22,9 @@ const LogIn = () => {
         axios
             .post('http://localhost:3003/user/login', body)
             .then((response) => {
-                window.localStorage.setItem(response.data)
+                window.localStorage.setItem('token', response.data.token)
+
+                history.push('/feed')
             })
             .catch((error) => {
                 alert(error.response.data.error)

@@ -1,9 +1,12 @@
 import useForm from '../../hooks/useForm'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 import { TextField } from '@material-ui/core'
 import { ButtonStyled, FormStyled } from './styles'
-import axios from 'axios'
 
 const SignUp = () => {
+    const history = useHistory()
+
     const { form, onChangeInput, resetState } = useForm({
         name: '',
         nickname: '',
@@ -23,7 +26,9 @@ const SignUp = () => {
         axios
             .post('http://localhost:3003/user/signup', body)
             .then((response) => {
-                window.localStorage.setItem(response.data)
+                window.localStorage.setItem('token', response.data.token)
+
+                history.push('/feed')
             })
             .catch((error) => {
                 alert(error.response.data.error)
