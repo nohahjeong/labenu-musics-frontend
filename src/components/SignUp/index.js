@@ -46,12 +46,12 @@ const SignUp = () => {
                 label='Nickname'
                 type='text'
                 onChange={onChangeInput}
-                value={form.Nickname}
-                name={'Nickname'}
+                value={form.nickname}
+                name={'nickname'}
             />
 
             <TextField
-                label='email'
+                label='E-mail'
                 type='email'
                 onChange={onChangeInput}
                 value={form.email}
