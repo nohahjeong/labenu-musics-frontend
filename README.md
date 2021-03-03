@@ -22,14 +22,14 @@ Used to request data of Back End.
 
 ## Functionalities
 
-### Sign Up
+### `Sign Up`
 
 User can sign up providing name, nickname, e-mail, password. After sign up, user is redirected to feed page.
 
-### Log In
+### `Log In`
 
 User can log in providing his registered e-mail or nickname and password. After log in, user is redirected to feed page.
 
-### Add Music (not implemented yet)
+### `Add Music` (not implemented yet)
 
 User can add music, providing title, author, album, genre, date and file or link, to his feed page.
