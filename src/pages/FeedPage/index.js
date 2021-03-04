@@ -1,7 +1,7 @@
 import useProtectedPage from '../../hooks/useProtectedPage'
 
 const FeedPage = () => {
-    useProtectedPage()
+    // useProtectedPage()
 
     return (
         <div>
