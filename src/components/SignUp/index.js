@@ -71,7 +71,11 @@ const SignUp = () => {
                 name={'password'}
             />
 
-            <ButtonStyled variant='contained' type='submit'>
+            <ButtonStyled
+                variant='contained'
+                color='primary'
+                type='submit'
+            >
                 sign up
             </ButtonStyled>
         </FormStyled>

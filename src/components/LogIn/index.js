@@ -51,7 +51,11 @@ const LogIn = () => {
                 name={'password'}
             />
 
-            <ButtonStyled variant='contained' type='submit'>
+            <ButtonStyled
+                variant='contained'
+                color='primary'
+                type='submit'
+            >
                 log in
             </ButtonStyled>
         </FormStyled>

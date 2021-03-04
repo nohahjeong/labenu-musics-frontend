@@ -4,6 +4,7 @@ import TabPanel from '../../components/TabPanel'
 import LogIn from '../../components/LogIn'
 import SignUp from '../../components/SignUp'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
+import { MainContainer } from './styles'
 
 const HomePage = () => {
     const [tab, setTab] = React.useState(0)
@@ -15,11 +16,12 @@ const HomePage = () => {
     }
 
     return (
-        <div>
+        <MainContainer>
             <div>
                 <AppBar
                     position='static'
                     color='secondary'
+                    elevation={0}
                 >
                     <Tabs
                         value={tab}
@@ -40,7 +42,7 @@ const HomePage = () => {
                     <SignUp />
                 </TabPanel>
             </div>
-        </div>
+        </MainContainer>
     )
 }
 
