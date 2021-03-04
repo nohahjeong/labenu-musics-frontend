@@ -17,8 +17,15 @@ const HomePage = () => {
     return (
         <div>
             <div>
-                <AppBar position='static' width='50vw'>
-                    <Tabs value={tab} onChange={handleTabChange} centered>
+                <AppBar
+                    position='static'
+                    color='secondary'
+                >
+                    <Tabs
+                        value={tab}
+                        onChange={handleTabChange}
+                        indicatorColor='primary'
+                    >
                         <Tab label='log in' />
 
                         <Tab label='sign up' />
