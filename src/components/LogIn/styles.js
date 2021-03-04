@@ -1,11 +1,9 @@
 import styled from 'styled-components'
-import { Button } from '@material-ui/core'
 
 export const FormStyled = styled.form`
+    height: 40vh;
+    max-height: 260px;
     display: flex;
     flex-direction: column;
-`
-
-export const ButtonStyled = styled(Button)`
-    margin-top: 28px;
+    justify-content: space-evenly
 `

@@ -2,7 +2,8 @@ import useForm from '../../hooks/useForm'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { TextField } from '@material-ui/core'
-import { ButtonStyled, FormStyled } from './styles'
+import { Button } from '@material-ui/core'
+import { FormStyled } from './styles'
 
 const SignUp = () => {
     const history = useHistory()
@@ -71,13 +72,13 @@ const SignUp = () => {
                 name={'password'}
             />
 
-            <ButtonStyled
+            <Button
                 variant='contained'
                 color='primary'
                 type='submit'
             >
                 sign up
-            </ButtonStyled>
+            </Button>
         </FormStyled>
     )
 }

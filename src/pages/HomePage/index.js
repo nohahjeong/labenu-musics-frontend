@@ -27,6 +27,7 @@ const HomePage = () => {
                         value={tab}
                         onChange={handleTabChange}
                         indicatorColor='primary'
+                        centered
                     >
                         <Tab label='log in' />
 
