@@ -1,12 +1,22 @@
 import useProtectedPage from '../../hooks/useProtectedPage'
+import { MenuItem, MenuList, Paper } from '@material-ui/core'
+import { FeedPageContainer, PaperStyled } from './styles'
 
 const FeedPage = () => {
     // useProtectedPage()
 
+
+
     return (
-        <div>
+        <FeedPageContainer>
+            <Paper square>
+                <MenuList>
+                    <MenuItem>My Musics</MenuItem>
+                    <MenuItem>Add Music</MenuItem>
+                </MenuList>
+            </Paper>
             feed
-        </div>
+        </FeedPageContainer>
     )
 }
 

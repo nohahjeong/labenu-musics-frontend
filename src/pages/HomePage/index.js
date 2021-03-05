@@ -4,7 +4,7 @@ import TabPanel from '../../components/TabPanel'
 import LogIn from '../../components/LogIn'
 import SignUp from '../../components/SignUp'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
-import { MainContainer } from './styles'
+import { HomePageContainer, AppBarStyled } from './styles'
 
 const HomePage = () => {
     const [tab, setTab] = React.useState(0)
@@ -15,38 +15,37 @@ const HomePage = () => {
         setTab(selectedTab)
     }
 
+    let component
+    if (tab === 1) {
+        component = <SignUp />
+    } else {
+        component = <LogIn />
+    }
+
     return (
-        <MainContainer>
-            <div>
-                <AppBar
-                    position='static'
-                    color='secondary'
-                    elevation={0}
+        <HomePageContainer>
+            <AppBarStyled
+                position='static'
+                color='secondary'
+                elevation={0}
+            >
+                <Tabs
+                    value={tab}
+                    onChange={handleTabChange}
+                    indicatorColor='primary'
+                    centered
                 >
-                    <Tabs
-                        value={tab}
-                        onChange={handleTabChange}
-                        indicatorColor='primary'
-                        centered
-                    >
-                        <Tab label='log in' />
+                    <Tab label='log in' />
 
-                        <Tab label='sign up' />
-                    </Tabs>
-                </AppBar>
+                    <Tab label='sign up' />
+                </Tabs>
+            </AppBarStyled>
 
-                <TabPanel value={tab} index={0}>
-                    <LogIn />
-                </TabPanel>
-
-                <TabPanel value={tab} index={1}>
-                    <SignUp />
-                </TabPanel>
-            </div>
-        </MainContainer>
+            <TabPanel value={tab} index={tab}>
+                {component}
+            </TabPanel>
+        </HomePageContainer>
     )
 }
 
 export default HomePage
-
-// https://material-ui.com/pt/components/tabs/#vertical-tabs

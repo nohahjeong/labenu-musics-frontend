@@ -1,10 +1,17 @@
 import styled from 'styled-components'
-import {secondaryColor} from '../../constants/colors'
+import { AppBar } from '@material-ui/core'
+import { secondaryColorLight } from '../../constants/colors'
 
-export const MainContainer = styled.div`
-    height: 90vh;
-    max-height: 340px;
+export const HomePageContainer = styled.div`
+    width: 60vw;
+    min-width: 260px;
+    max-width: 340px;
+    height: 380px;
     display: flex;
     flex-direction: column;
-    background-color: ${secondaryColor}
+    background-color: ${secondaryColorLight}
+`
+
+export const AppBarStyled = styled(AppBar)`
+    height: 50px;
 `

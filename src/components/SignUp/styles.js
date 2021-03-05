@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const FormStyled = styled.form`
-    height: 40vh;
-    max-height: 260px;
+    height: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly
+    justify-content: space-between;
 `

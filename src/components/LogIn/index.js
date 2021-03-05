@@ -1,7 +1,7 @@
 import useForm from '../../hooks/useForm'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { TextField } from '@material-ui/core'
+import { Grid, TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import { FormStyled } from './styles'
 
@@ -36,12 +36,15 @@ const LogIn = () => {
 
     return (
         <FormStyled onSubmit={onSubmit}>
+            <br/>
+            <br/>
             <TextField
                 label='E-mail or Nickname'
                 type='text'
                 onChange={onChangeInput}
                 value={form.emailOrNickname}
                 name={'emailOrNickname'}
+                fullWidth
             />
 
             <TextField
@@ -50,15 +53,18 @@ const LogIn = () => {
                 onChange={onChangeInput}
                 value={form.password}
                 name={'password'}
+                fullWidth
             />
-
+            <br/>
+            <br/>
             <Button
                 variant='contained'
                 color='primary'
                 type='submit'
+                fullWidth
             >
                 log in
-            </Button>
+                </Button>
         </FormStyled>
     )
 }
