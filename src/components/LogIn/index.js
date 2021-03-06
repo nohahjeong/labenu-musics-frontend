@@ -1,7 +1,8 @@
 import useForm from '../../hooks/useForm'
 import axios from 'axios'
+import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
-import { Grid, TextField } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import { FormStyled } from './styles'
 
@@ -21,7 +22,7 @@ const LogIn = () => {
             password: form.password
         }
         axios
-            .post('http://localhost:3003/user/login', body)
+            .post(`${BASE_URL}/user/login`, body)
             .then((response) => {
                 window.localStorage.setItem('token', response.data.token)
 
@@ -36,8 +37,8 @@ const LogIn = () => {
 
     return (
         <FormStyled onSubmit={onSubmit}>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <TextField
                 label='E-mail or Nickname'
                 type='text'
@@ -55,8 +56,8 @@ const LogIn = () => {
                 name={'password'}
                 fullWidth
             />
-            <br/>
-            <br/>
+            <br />
+            <br />
             <Button
                 variant='contained'
                 color='primary'

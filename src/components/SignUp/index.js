@@ -1,5 +1,6 @@
 import useForm from '../../hooks/useForm'
 import axios from 'axios'
+import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
 import { TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
@@ -25,7 +26,7 @@ const SignUp = () => {
             password: form.password
         }
         axios
-            .post('http://localhost:3003/user/signup', body)
+            .post(`${BASE_URL}/user/signup`, body)
             .then((response) => {
                 window.localStorage.setItem('token', response.data.token)
 
