@@ -2,6 +2,7 @@ import { BrowserRouter as Browser, Switch, Route } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import FeedPage from '../pages/FeedPage'
 import ErrorPage from '../pages/ErrorPage'
+import DetailPage from '../pages/DetailPage'
 
 const Router = () => {
     return (
@@ -13,6 +14,10 @@ const Router = () => {
 
                 <Route exact path='/feed'>
                     <FeedPage />
+                </Route>
+
+                <Route exact path='/detail/:id'>
+                    <DetailPage />
                 </Route>
 
                 <Route>
