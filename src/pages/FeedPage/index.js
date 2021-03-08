@@ -1,9 +1,9 @@
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/urls'
-import { MenuItem, MenuList, Paper } from '@material-ui/core'
 import { FeedPageContainer, MusicsContainer } from './styles'
 import MusicCard from '../../components/MusicCard'
+import LateralMenu from '../../components/LateralMenu'
 
 const FeedPage = () => {
     useProtectedPage()
@@ -27,12 +27,7 @@ const FeedPage = () => {
     })
     return (
         <FeedPageContainer>
-            <Paper square>
-                <MenuList>
-                    <MenuItem>My Musics</MenuItem>
-                    <MenuItem>Add Music</MenuItem>
-                </MenuList>
-            </Paper>
+            <LateralMenu />
 
             <MusicsContainer>
                 {musicCards}
