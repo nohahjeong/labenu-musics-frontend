@@ -1,5 +1,7 @@
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
+import { useHistory } from 'react-router-dom'
+import { goToDetailPage } from '../../routes/coordinator'
 import { BASE_URL } from '../../constants/urls'
 import { FeedPageContainer, MusicsContainer } from './styles'
 import MusicCard from '../../components/MusicCard'
@@ -8,8 +10,13 @@ import LateralMenu from '../../components/LateralMenu'
 const FeedPage = () => {
     useProtectedPage()
 
+    const history = useHistory()
+
     const musics = useRequestData(`${BASE_URL}/music/get`, [])
-    console.log(musics)
+
+    const onClickCard = (id) => {
+        goToDetailPage(history, id)
+    }
 
     const musicCards = musics.map((music) => {
         return (
@@ -21,7 +28,7 @@ const FeedPage = () => {
                 file={music.file}
                 album={music.album}
                 genres={music.genres}
-                onClick={() => null}
+                onClick={() => onClickCard(music.id)}
             />
         )
     })
