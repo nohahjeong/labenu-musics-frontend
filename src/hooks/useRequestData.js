@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import axios from 'axios'
 
 const useRequestData = (url, initialState) => {
+    const history = useHistory()
+
     const [data, setData] = useState(initialState)
 
     useEffect(() => {
@@ -15,8 +18,14 @@ const useRequestData = (url, initialState) => {
                 setData(response.data)
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error.response.data)
                 alert('Error - Please try again')
+
+                if (error.response.data.error.includes('expired')) {
+                    localStorage.removeItem('token')
+
+                    history.push('/')
+                }
             })
     }, [url])
 
