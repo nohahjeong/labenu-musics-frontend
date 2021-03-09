@@ -1,8 +1,9 @@
-import { Card, CardActions, CardContent, Typography } from '@material-ui/core'
+import { CardActions, CardContent, Typography } from '@material-ui/core'
+import { CardStyled } from './styles'
 
 const MusicCard = (props) => {
     return (
-        <Card>
+        <CardStyled>
             <CardActions onClick={props.onClick}>
                 <CardContent>
                     <Typography variant='h5'>
@@ -14,7 +15,7 @@ const MusicCard = (props) => {
                     </Typography>
                 </CardContent>
             </CardActions>
-        </Card>
+        </CardStyled>
     )
 }
 

@@ -5,13 +5,14 @@ export const FeedPageContainer = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     background-color: ${primaryColorLight};
 `
 
 export const MusicsContainer = styled.div`
-    width: 100%;
-    margin: 1rem;
+    margin: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    align-items: center;
+    gap: 0.6rem;
 `
