@@ -9,7 +9,7 @@ const MusicCard = (props) => {
                         {props.title}
                     </Typography>
 
-                    <Typography variant='body'>
+                    <Typography variant='subtitle1'>
                         {props.author}
                     </Typography>
                 </CardContent>
