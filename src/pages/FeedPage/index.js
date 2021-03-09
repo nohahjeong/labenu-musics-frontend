@@ -1,21 +1,28 @@
+import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
-import { useHistory } from 'react-router-dom'
-import { goToDetailPage } from '../../routes/coordinator'
 import { BASE_URL } from '../../constants/urls'
 import { FeedPageContainer, MusicsContainer } from './styles'
 import MusicCard from '../../components/MusicCard'
 import LateralMenu from '../../components/LateralMenu'
+import { Modal } from '@material-ui/core'
+import MusicModal from '../../components/MusicModal'
 
 const FeedPage = () => {
     useProtectedPage()
 
-    const history = useHistory()
-
     const musics = useRequestData(`${BASE_URL}/music/get`, [])
 
-    const onClickCard = (id) => {
-        goToDetailPage(history, id)
+    const [modalOpened, setModalOpened] = React.useState(false)
+    const [musicModal, setMusicModal] = React.useState()
+
+    const onClickCard = (music) => {
+        setModalOpened(true)
+        setMusicModal(music)
+    }
+    const handleModalClose = () => {
+        setModalOpened(false)
+        setMusicModal()
     }
 
     const musicCards = musics.map((music) => {
@@ -24,14 +31,11 @@ const FeedPage = () => {
                 key={music.id}
                 title={music.title}
                 author={music.author}
-                date={music.date}
-                file={music.file}
-                album={music.album}
-                genres={music.genres}
-                onClick={() => onClickCard(music.id)}
+                onClick={() => onClickCard(music)}
             />
         )
     })
+
     return (
         <FeedPageContainer>
             <LateralMenu />
@@ -39,6 +43,13 @@ const FeedPage = () => {
             <MusicsContainer>
                 {musicCards}
             </MusicsContainer>
+
+            <Modal
+                open={modalOpened}
+                onClose={handleModalClose}
+            >
+                <MusicModal music={musicModal}/>
+            </Modal>
         </FeedPageContainer>
     )
 }
