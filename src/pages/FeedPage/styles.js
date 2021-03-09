@@ -1,11 +1,11 @@
 import styled from 'styled-components'
+import { primaryColorLight } from '../../constants/colors'
 
 export const FeedPageContainer = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: khaki;
-    color: black;
+    background-color: ${primaryColorLight};
 `
 
 export const MusicsContainer = styled.div`
