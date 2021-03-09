@@ -2,7 +2,7 @@ import { Card, CardContent, Typography } from '@material-ui/core'
 
 const MusicModal = (props) => {
     const genres = (props.music.genres).map((genre) => {
-        return <span>{genre.name} </span>
+        return <span key={genre.id}>{genre.name} </span>
     })
 
     return (
@@ -20,11 +20,9 @@ const MusicModal = (props) => {
                     {genres}
                 </Typography>
 
-                <audio
-                    src={props.music.file}
-                    controls='controls'
-                >
-                </audio>
+                {/* <iframe controls>
+                    <source src={props.music.file} />
+                </iframe> */}
             </CardContent>
         </Card>
     )
