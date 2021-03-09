@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core'
+import { Card, CardContent, Typography } from '@material-ui/core'
 
 const MusicModal = (props) => {
     const genres = (props.music.genres).map((genre) => {

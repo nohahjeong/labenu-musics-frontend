@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Tabs, Tab } from '@material-ui/core'
+import { Tabs, Tab } from '@material-ui/core'
 import TabPanel from '../../components/TabPanel'
 import LogIn from '../../components/LogIn'
 import SignUp from '../../components/SignUp'
