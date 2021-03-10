@@ -98,13 +98,13 @@ const AddMusicPage = () => {
                         name={'date'}
                     />
 
-                    {/* <input
+                    <input
                         type='file'
                         onChange={onChangeInput}
                         value={form.file}
                         name={'file'}
                         accept='audio/*'
-                    /> */}
+                    />
                 </RowFlexDiv>
 
                 <Button

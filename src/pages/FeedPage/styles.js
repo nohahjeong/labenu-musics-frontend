@@ -7,6 +7,8 @@ export const FeedPageContainer = styled.div`
     display: flex;
     flex-direction: column;
     background-color: ${primaryColorLight};
+    overflow: hidden;
+    overflow-y: scroll;
 `
 
 export const MusicsContainer = styled.div`
