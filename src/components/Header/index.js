@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { IconButton, Menu, MenuItem, Typography } from '@material-ui/core'
 import { Menu as MenuIcon } from '@material-ui/icons'
 import { HeaderContainer } from './styles'
-import { goToFeedPage } from '../../routes/coordinator'
+import { goToAddMusicPage, goToFeedPage } from '../../routes/coordinator'
 
 const Header = () => {
     const history = useHistory()
@@ -39,7 +39,7 @@ const Header = () => {
                 <MenuItem onClick={() => goToFeedPage(history)}>
                     My Musics
                 </MenuItem>
-                <MenuItem onClick={handleMenuClose}>
+                <MenuItem onClick={() => goToAddMusicPage(history)}>
                     Add Music
                 </MenuItem>
             </Menu>

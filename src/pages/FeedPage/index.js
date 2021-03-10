@@ -4,7 +4,7 @@ import useRequestData from '../../hooks/useRequestData'
 import { BASE_URL } from '../../constants/urls'
 import { FeedPageContainer, MusicsContainer } from './styles'
 import MusicCard from '../../components/MusicCard'
-import LateralMenu from '../../components/LateralMenu'
+import Header from '../../components/Header'
 import { Modal } from '@material-ui/core'
 import MusicModal from '../../components/MusicModal'
 
@@ -38,7 +38,7 @@ const FeedPage = () => {
 
     return (
         <FeedPageContainer>
-            <LateralMenu />
+            <Header />
 
             <MusicsContainer>
                 {musicCards}
