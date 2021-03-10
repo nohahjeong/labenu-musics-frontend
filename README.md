@@ -30,6 +30,10 @@ User can sign up providing name, nickname, e-mail, password. After sign up, user
 
 User can log in providing his registered e-mail or nickname and password. After log in, user is redirected to feed page.
 
-### `Add Music` (not implemented yet)
+### `Add Music`
 
-User can add music, providing title, author, album, genre, date and file or link, to his feed page.
+User can add music, providing title, author, album, genre, date and file, to his feed page.
+
+### `View User Musics`
+
+User can view his musics in the feed page and click to see details.
