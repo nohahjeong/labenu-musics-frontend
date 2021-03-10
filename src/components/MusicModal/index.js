@@ -1,12 +1,13 @@
-import { Card, CardContent, Typography } from '@material-ui/core'
+import { CardContent, Typography } from '@material-ui/core'
+import { CardStyled, GenreContainer } from './styles'
 
 const MusicModal = (props) => {
     const genres = (props.music.genres).map((genre) => {
-        return <span key={genre.id}>{genre.name} </span>
+        return <GenreContainer key={genre.id}>{genre.name} </GenreContainer>
     })
 
     return (
-        <Card>
+        <CardStyled>
             <CardContent>
                 <Typography variant='h5'>
                     {props.music.title}, {props.music.album}
@@ -24,7 +25,7 @@ const MusicModal = (props) => {
                     <source src={props.music.file} />
                 </audio> */}
             </CardContent>
-        </Card>
+        </CardStyled>
     )
 }
 
