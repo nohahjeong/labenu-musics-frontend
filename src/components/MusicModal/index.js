@@ -20,9 +20,9 @@ const MusicModal = (props) => {
                     {genres}
                 </Typography>
 
-                <audio controls>
+                {/* <audio controls>
                     <source src={props.music.file} />
-                </audio>
+                </audio> */}
             </CardContent>
         </Card>
     )

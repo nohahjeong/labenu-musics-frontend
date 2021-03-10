@@ -30,7 +30,7 @@ const AddMusicPage = () => {
             date: form.date,
             file: form.file,
             album: form.album,
-            genre: []
+            genre: [form.genre]
         }
         axios
             .post(`${BASE_URL}/music/add`, body, {
@@ -44,6 +44,14 @@ const AddMusicPage = () => {
                 history.push('/feed')
             })
             .catch((error) => {
+                if (error.response.data.error.includes('expired')) {
+                    localStorage.removeItem('token')
+                    
+                    history.push('/')
+                }
+                
+                console.log(error.response.data)
+
                 alert(error.response.data.error)
             })
     }

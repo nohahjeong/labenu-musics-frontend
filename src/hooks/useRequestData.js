@@ -18,14 +18,15 @@ const useRequestData = (url, initialState) => {
                 setData(response.data)
             })
             .catch((error) => {
-                console.log(error.response.data)
-                alert('Error - Please try again')
-
                 if (error.response.data.error.includes('expired')) {
                     localStorage.removeItem('token')
-
+                    
                     history.push('/')
                 }
+                
+                console.log(error.response.data)
+
+                alert('Error - Please try again')
             })
     }, [url])
 
