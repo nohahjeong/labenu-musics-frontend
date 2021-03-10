@@ -17,7 +17,8 @@ const AddMusicPage = () => {
         author: '',
         date: '',
         file: '',
-        album: ''
+        album: '',
+        genre: []
     })
 
     const onSubmit = (event) => {
@@ -32,7 +33,7 @@ const AddMusicPage = () => {
             genre: []
         }
         axios
-            .post(`${BASE_URL}/add`, body, {
+            .post(`${BASE_URL}/music/add`, body, {
                 headers: {
                     Authorization: window.localStorage.getItem('token')
                 }
@@ -97,13 +98,13 @@ const AddMusicPage = () => {
                         name={'date'}
                     />
 
-                    <TextField
+                    {/* <input
                         type='file'
                         onChange={onChangeInput}
                         value={form.file}
                         name={'file'}
                         accept='audio/*'
-                    />
+                    /> */}
                 </RowFlexDiv>
 
                 <Button
