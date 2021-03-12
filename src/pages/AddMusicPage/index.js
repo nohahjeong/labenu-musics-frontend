@@ -49,11 +49,11 @@ const AddMusicPage = () => {
                 history.push('/feed')
             })
             .catch((error) => {
+                setIsloading(false)
+
                 if (error.response.data.error.includes('expired')) {
                     localStorage.removeItem('token')
-
-                    setIsloading(false)
-
+                    
                     history.push('/')
                 }
 
