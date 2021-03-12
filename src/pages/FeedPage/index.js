@@ -7,6 +7,7 @@ import MusicCard from '../../components/MusicCard'
 import Header from '../../components/Header'
 import { Modal } from '@material-ui/core'
 import MusicModal from '../../components/MusicModal'
+import Loading from '../../components/Loading'
 
 const FeedPage = () => {
     useProtectedPage()
@@ -41,14 +42,14 @@ const FeedPage = () => {
             <Header />
 
             <MusicsContainer>
-                {musicCards}
+                {musicCards.length > 0 ? musicCards : <Loading />}
             </MusicsContainer>
 
             <Modal
                 open={modalOpened}
                 onClose={handleModalClose}
             >
-                <MusicModal music={musicModal}/>
+                <MusicModal music={musicModal} />
             </Modal>
         </FeedPageContainer>
     )

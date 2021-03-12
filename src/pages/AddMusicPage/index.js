@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import useForm from '../../hooks/useForm'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
-import { TextField } from '@material-ui/core'
+import { CircularProgress, TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import Header from '../../components/Header'
 import { AddMusicPageContainer, FormStyled, RowFlexDiv } from './styles'
@@ -11,6 +12,7 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 const AddMusicPage = () => {
     useProtectedPage()
     const history = useHistory()
+    const [isLoading, setIsloading] = useState(false)
 
     const { form, onChangeInput } = useForm({
         title: '',
@@ -32,6 +34,7 @@ const AddMusicPage = () => {
             album: form.album,
             genre: [form.genre]
         }
+        setIsloading(true)
         axios
             .post(`${BASE_URL}/music/add`, body, {
                 headers: {
@@ -41,15 +44,19 @@ const AddMusicPage = () => {
             .then((response) => {
                 alert('Music added')
 
+                setIsloading(false)
+
                 history.push('/feed')
             })
             .catch((error) => {
                 if (error.response.data.error.includes('expired')) {
                     localStorage.removeItem('token')
-                    
+
+                    setIsloading(false)
+
                     history.push('/')
                 }
-                
+
                 console.log(error.response.data)
 
                 alert(error.response.data.error)
@@ -120,7 +127,7 @@ const AddMusicPage = () => {
                     color='primary'
                     type='submit'
                 >
-                    add
+                    {isLoading ? <CircularProgress color={'inherit'} size={24} /> : <>add</>}
                 </Button>
             </FormStyled>
 
