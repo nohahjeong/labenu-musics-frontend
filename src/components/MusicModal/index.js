@@ -1,4 +1,4 @@
-import { CardContent, Typography } from '@material-ui/core'
+import { CardContent, Link, Typography } from '@material-ui/core'
 import { CardStyled, GenreContainer } from './styles'
 
 const MusicModal = (props) => {
@@ -21,9 +21,7 @@ const MusicModal = (props) => {
                     {genres}
                 </Typography>
 
-                {/* <audio controls>
-                    <source src={props.music.file} />
-                </audio> */}
+                <Link href={props.music.file}> YouTube Link </Link>
             </CardContent>
         </CardStyled>
     )

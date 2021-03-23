@@ -113,12 +113,13 @@ const AddMusicPage = () => {
                         name={'date'}
                     />
 
-                    <input
-                        type='file'
+                    <TextField
+                        label='YouTube Link'
+                        type='text'
                         onChange={onChangeInput}
                         value={form.file}
                         name={'file'}
-                        accept='audio/*'
+                        fullWidth
                     />
                 </RowFlexDiv>
 
